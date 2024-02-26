@@ -1,0 +1,46 @@
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    max-width: 400px;
+    margin: auto;
+    position: relative;
+    top: 120px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container p {
+    margin: 10px;
+}
+
+.container span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.formGroup button {
+    background-color: #1e4d91;
+    color: white;
+    margin-top: 25px;
+    padding: 15px 120px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.formGroup button:hover {
+    background-color: #5577ab;
+}
+
+.formGroup :nth-child(1) {
+    padding: 15px 123px;
+    background-color: rgba(255, 0, 0, 0.874);
+}
+
+.formGroup :nth-child(1):hover {
+    background-color: rgb(197, 52, 52);
+}
