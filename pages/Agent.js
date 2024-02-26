@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useRef, useEffect, useState } from "react";
-import styles from "../styles/agent.module.css"
+import styles from "../styles/agent.module.css";
 import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 import SignalCellularAltRoundedIcon from '@mui/icons-material/SignalCellularAltRounded';
 import ForumRoundedIcon from '@mui/icons-material/ForumRounded';
@@ -15,27 +15,12 @@ const Agent = () => {
     const [psid, setPSID] = useState('');
     const [myName, setMyName] = useState('');
     const [div3messages, setDiv3Messages] = useState([]);
-    const [profilePicUrl, setProfilePicUrl] = useState('');
+
     // const [email, setEmail] = useState();
     const [headName, setHeadName] = useState('Conversations');
     const [rotation, setRotation] = useState(0);
     const router = useRouter();
-    var { pageId, pageAccessToken, userAccessToken } = router.query;
-
-    const handleDivClick = async (id) => {
-        console.log(id);
-        await FB.api(`/me/picture`, 'get', { redirect: 0, access_token: pageAccessToken }, (response) => {
-            console.log(response);
-            if (response && !response.error) {
-
-                // console.log(response.picture.data.url);
-                setProfilePicUrl(response.data.url);
-            }
-            else {
-                console.error(response.error)
-            }
-        })
-    }
+    const { pageId, pageAccessToken, profilePicUrl } = router.query;
 
     const refresh = async () => {
         setRotation(rotation + 360);
@@ -119,11 +104,11 @@ const Agent = () => {
                         onClick={() => handleIconClick("Analytics")}
                     />
                 </div>
-                <div >
+                <div>
                     <Image
                         className={styles.div1_2}
                         src={profilePicUrl}
-                        alt="profile_pic"
+                        alt="pic"
                         height={50}
                         width={50}
                     />
@@ -146,7 +131,6 @@ const Agent = () => {
                                 setMyName(name);
                                 setDiv3Messages(sender.messages.data.slice().reverse());
                                 setPSID(id);
-                                handleDivClick(id);
                             }}
                                 key={index}>
                                 <h1>{sender.participants.data[0].name}</h1>

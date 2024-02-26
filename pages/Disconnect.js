@@ -32,7 +32,7 @@ const DisConnect = () => {
                     } else {
                         console.error('Error fetching user accounts');
                     }
-                });
+                })
             } catch (error) {
                 console.error(error.message);
             }
@@ -44,22 +44,32 @@ const DisConnect = () => {
     }, [userAccessToken]);
 
     const handleClick = async () => {
-        await FB.api(`/me/picture`, 'get', { redirect: 0, access_token: pageAccessToken }, (response) => {
-            console.log(response);
-            if (response && !response.error) {
 
-                // console.log(response.picture.data.url);
-                setProfilePicUrl(response.data.url);
-            }
-            else {
-                console.error(response.error)
-            }
-        })
-        router.push({
-            pathname: '/Agent',
-            query: { pageId, pageAccessToken, userAccessToken}
-        });
+        if (pageId && pageAccessToken) {
+            await FB.api(`/me/picture`, 'get', { redirect: 0, access_token: pageAccessToken }, (response) => {
+                console.log(response);
+                if (response && !response.error) {
+                    const profilePicUrl = response.data.url;
+                    console.log(profilePicUrl);
+                    
+                    if (pageId && pageAccessToken && profilePicUrl) {
+                        router.push({
+                            pathname: '/Agent',
+                            query: { pageId, pageAccessToken, profilePicUrl }
+                        })
+                    }
+
+                }
+                else {
+                    console.error(response.error)
+                }
+            })
+
+        } else {
+            console.error('Incomplete data. Unable to navigate.');
+        }
     };
+
 
     return (
         <div className={styles.container}>
