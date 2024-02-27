@@ -34,24 +34,25 @@
 
 .activeIcon {
     color: #1e4d91;
-    background-color: rgb(209, 244, 244);
+    background-color: rgb(248, 251, 251);
 }
 
 .div2 {
-    background-color: rgb(209, 244, 244);
+    /* background-color: rgb(209, 244, 244); */
+    background-color: white;
     height: 100%;
     width: 30%;
     /* display: none; */
 }
 
 .messagedisplay {
-    margin: 10px 0px;
-    padding: 10px 20px;
+    /* margin: 10px 0px; */
+    padding: 20px;
     line-height: 1.5;
 }
 
 .messagedisplay:hover {
-    background-color: #c8d5e6;
+    background-color: #c8d5e685;
     cursor: pointer;
 }
 
@@ -62,7 +63,7 @@
 .div3 {
     border: 2px rgb(193, 218, 218);
     border-style: none solid;
-    background-color: rgb(209, 244, 244);
+    background-color: rgba(218, 206, 206, 0.21);
     height: 100%;
     width: 50%;
 }
@@ -92,12 +93,13 @@
 }
 
 .div4 {
-    background-color: rgb(209, 244, 244);
+    background-color: rgba(173, 216, 230, 0.336);
     height: 100%;
     width: 25%;
 }
 
 .div4_1 {
+    background-color: white;
     text-align: center;
     border-bottom: 2px solid rgb(193, 218, 218);
 }
@@ -135,6 +137,7 @@
 }
 
 .div4_2 {
+    background-color: white;
     padding: 10px 15px;
     margin: 10px;
     border: 2px solid rgb(193, 218, 218);
@@ -146,6 +149,7 @@
 }
 
 .div4_2 h5 {
+    color: blue;
     margin: 15px 8px;
     cursor: pointer;
     text-decoration: underline;
@@ -161,6 +165,7 @@
 
 .div3_1 {
     border-bottom: 2px solid rgb(193, 218, 218);
+    background-color: white;
     padding: 15px 25px;
     height: 38px;
 }
